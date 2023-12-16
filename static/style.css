@@ -1,0 +1,717 @@
+/* Import Google Fonts */
+
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  list-style: none;
+  
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background: rgb(219, 219, 219);
+  font-family: 'Verdana', 'Geneva', sans-serif;
+  height: 90vh;
+  width: 98.5%;
+  margin: 10px;
+
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 9%;
+  padding: 20px;
+  background: #fff;
+  
+}
+.logo{
+  display: flex;
+  align-items: center;
+}
+.logo a{
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 2rem 8rem 2rem 2rem;
+}
+
+
+/*search*/
+.search-bar{
+  width: 100%;
+  height: 300px;
+  background-color: #ffffff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: 2px -5px 30px rgba(0,0,0,0.1);
+  z-index: 101;
+  animation: search 0.3s;
+}
+.search-input{
+  width: 90%;
+  border-bottom: 2px solid blueviolet;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-top: 20px;
+}
+
+.search-bar input{
+  width: 100%;
+  padding: 30px;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  margin: 20px;
+  padding: 0 20px;  
+}
+.search-cancel{
+  
+  font-size: 2rem;
+  padding-right: 40px;
+}
+.search-bar{
+  display: none;
+}
+
+.search-bar-active{
+  display: flex; 
+}
+
+@keyframes search{
+  0%{
+      bottom: -300px;
+  }
+  100%{
+      bottom: 0;
+  }
+}
+/*search end*/
+.header-icons{
+  display: flex;
+  font-size: 25px;
+  align-items: center;
+}
+.header-icons i{
+  margin-right: 2rem;
+  cursor: pointer;
+}
+.header-icons .account{
+ 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-icons .account img{
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.container {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+ 
+  justify-content: space-between;
+}
+
+/* navigation side bar */
+
+    nav{     
+      background-color: #fff;
+    }
+    .navbar{
+      padding: 1px;
+      flex-direction: column;
+      padding-top: 20px;
+     height: 78vh;
+    }
+    
+    .logo{
+      margin: 0.5rem 0 1rem 0;
+      display: flex;
+      align-items: center;
+    }
+    .logo h1{
+      margin-left: 1rem;
+      text-transform: uppercase;
+    }
+    
+    ul{
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    li{
+      list-style-type: none;
+      text-decoration: none;
+      padding-bottom: 2rem;
+    }
+
+    li a{
+      
+      text-decoration: none;
+      font-size: 16px;
+      color: rgb(85, 83, 83);
+    }
+   
+    nav i{
+      width: 30px;
+      font-size: 18px;
+      text-align: center;
+    }
+    nav a{
+    
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgb(100, 100, 100);}
+    
+    .logout{
+      position: fixed;
+      bottom: 20px;
+    }
+    
+    /* Main Section */
+    .main-body{
+      width: 83%;
+      
+    }
+    .main-top{
+      width: 82vw;
+      background: #fff;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgb(43, 43, 43);
+    }
+    
+    h1{
+      margin: 15px 7.5px;
+    }
+    .prediction_form h1{
+      margin: 10px 5px;
+      font-size:18px;
+    }
+    .search_bar{
+      display: flex;
+      padding: 10px;
+      justify-content: space-between;
+    }
+    .search_bar input{
+      width: 50%;
+      padding: 10px;
+      border: 1px solid rgb(190, 190, 190);
+    }
+    .search_bar input:focus{
+      border: 1px solid blueviolet;
+    }
+    .search_bar select{
+      border: 1px solid rgb(190, 190, 190);
+      padding: 10px;
+      margin-left: 2rem;
+    }
+    .search_bar .filter{
+      width: 300px;
+    }
+    
+    
+    .row{
+      display: flex;
+      padding: 9px;
+      margin-top: 1.3rem;
+      justify-content: space-between;
+    }
+    .row p{
+      color: rgb(54, 54, 54);
+      font-size: 15px;
+    }
+    .row p span{
+      color: blueviolet;
+    }
+
+
+    /*accounts*/
+.form{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 102;
+    backdrop-filter:blur(2px);
+    box-shadow: 0 25px 45px rgba(255,255,255,0.1);
+                border: 1px solid rgba(1,1,1,0.5);
+                border-right: 1px solid rgba(1,1,1,0.2);
+                border-left: 1px solid rgba(1,1,1,0.2); 
+}
+.login-form,.sign-up-form{
+    width: 420px;
+    padding: 20px 10px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    position: relative;
+}
+.login-form form, .sign-up-form form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.login-form strong,.sign-up-form strong{
+    color: #272727;
+    font-size: 2rem;
+    margin: 2px 7px 7px 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+.login-form input, .sign-up-form input, .quote-form input,.quote-form select{
+    width: 90%;
+    height: 45px;
+    margin: 6px 0;
+    padding: 0 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+    outline: none;
+    border-radius: 7px;
+}
+.login-form button, .sign-up-form button{
+  width: 90%;
+  height: 45px;
+  margin: 6px 0;
+  padding: 0 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  outline: none;
+  border-radius: 7px;
+}
+.login-form input::placeholder, .sign-up-form input::placeholder{
+    color: rgba(0,0,0,0.5);
+}
+.login-form input[type="submit"], .sign-up-form input[type="submit"]{
+    background-color: blueviolet;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    margin-top: 10px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+}
+
+.form-btn{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.form-btn a{
+    color: blueviolet;
+    font-size: 0.9rem;
+}
+.sign-up-btn span,.forgot span,.already-user span,.more{
+    border-bottom: 1px solid #868686;
+    line-height: 16px;
+}
+
+.form-cancel{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: #868686;
+}
+
+.login-active, .login-active .login-form{
+    display: flex;
+    animation: fade 0.3s;
+}
+.sign-up-active, .sign-up-active .sign-up-form{
+    display: flex;
+    animation: fade 0.3s;
+}
+
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+        100%{
+        opacity: 1;
+    }
+}
+
+
+/* Profile */
+
+  /* Use flexbox to align items */
+  .user-details {
+    height: 12vh;
+    box-sizing: border-box;
+    text-align: center;
+    background: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.u-img {
+    align-self: flex-end;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* Align the ul (nav links) to the end (right) */
+.u-name {
+    align-self: flex-start;
+}
+.user-details .u-name {
+  text-transform: none;
+}
+  
+  
+  
+  
+  /* My card */
+  .my-card:not(:last-child) {
+    margin-bottom: 1.875rem;
+  }
+  
+  .my-card__header {
+    display: flex;
+    height:5%;
+    padding: 0 1.875rem;
+    border-width: 0 0 1px;
+    border-bottom: 1px solid #eaedf3;
+    border-color: rgba(0, 0, 0, .125);
+    background: none;
+  }
+  
+  .my-card__header-title {
+    flex: 1;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .my-card__header-link {
+    color: #9ea0a5;
+    /* 14px is default font size */
+  }
+  
+  .my-card__header-link:hover,
+  .my-card__header-link:focus {
+    color: #9ea0a5;
+  }
+  
+  
+  /* My list */
+  .my-list-item {
+    display: flex;
+    padding: 1rem 1.875rem;
+  }
+  
+  .my-list-item__date,
+  .my-list-item__text,
+  .my-list-item__fee {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .my-list-item__date {
+    flex-direction: column-reverse;
+    margin-right: 25px;
+    color: #9ea0a5;
+  }
+  
+  .my-list-item__date-day {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  
+  .my-list-item__date-month {
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    text-transform: uppercase;
+  }
+  
+  .my-list-item__text {
+    flex: 1;
+  }
+  
+  .my-list-item__text-title {
+    margin: 0 0 7px;
+    /* 14px is default font size */
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .my-list-item__text-description {
+    margin: 0;
+    color: #9ea0a5;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  
+  .my-list-item__fee {
+    text-align: right;
+  }
+  
+  .my-list-item__fee-delta {
+    color: #3BAD4B;
+    /* 14px is default font size */
+    font-weight: 500;
+  }
+  
+  .my-list-item__fee-currency {
+    color: #9EA0A5;
+    font-size: 12px;
+  }
+  
+  /* My inline-list */
+  .my-list-inline li:not(:last-child) {
+    margin-bottom: .5rem;
+  }
+  
+  /* My dl (definition list */
+  @media (min-width: 992px) {
+    .my-dl dt {
+      float: left;
+      color: #9EA0A5;
+      font-weight: 400;
+    }
+    
+    .my-dl dd {
+      text-align: right;
+    }
+  }
+  
+  /* My typography */
+  .my-text-headline {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 400;
+  }
+  
+  .my-text-overline {
+    margin-bottom: .75rem;
+    color: #9EA0A5;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  /* Divider */
+  .my-divider {
+    margin: 1.25rem 0;
+  }
+  
+  /* Input */
+  .my-input {
+    max-width: 186px;
+  }
+  
+  .my-select {
+    border-color: #D8DCE6;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
+    font-size: 14px;
+  }
+  
+  /* Bootstrap custom fixes */
+  @media (max-width: 1199px) {
+    .container {
+      max-width: 100%;
+    }
+  }
+  
+  .my-alert {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  
+    border: none;
+    box-shadow: none;
+  }
+  
+  .my-alert.alert-info {
+    background-color: blueviolet;
+    color: #fff;
+  }
+  
+  .my-alert__icon {
+    margin-right: 1.25rem;
+  }
+  
+  /* List icon */
+  .list__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 40px;
+    border: 1px solid #E2E5ED;
+    border-radius: .25rem;
+  }
+  
+  /* prediction form style */
+  .prediction_form{display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;}
+
+  fieldset {
+    border: 1px solid grey;
+    border-radius: .25rem;
+    margin-bottom: 5px;
+    width: 95%;
+    padding-left:15px;
+
+  }
+  
+  legend {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(43, 43, 43);
+  }
+  
+  label {
+font-size:13px;
+    margin-bottom: 4px;
+    color: rgb(54, 54, 54);
+  }
+  
+  input,
+  select,
+  textarea {
+    padding: 3px;
+    margin-bottom: 7px;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+ 
+.declaration {
+  margin:0;
+width: 70%;
+}
+  
+  button {
+    background-color: blueviolet;
+    color: #fff;
+  width: 18%;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .approve{
+    padding: 0;
+    margin-right: 5px;
+    width: 60px;
+    background-color: #3BAD4B;
+  }
+  .review{
+    padding: 0;
+    margin-right: 5px;
+    width: 80px;
+  }
+  .reject{
+    padding: 0;
+    width: 50px;
+    background-color: tomato;
+  }
+  
+  button:hover {
+    background-color: darkviolet;
+  }
+
+
+  
+  .chart {
+    display: block;
+    box-sizing: border-box;
+    height: 250px;
+    width: 600px;
+    background-color: #fff;
+}
+    
+    
+    .promo_card{
+      color: #fff;
+      border-radius: 8px;
+      margin-left: 10px;
+      padding: 0.5rem 1rem 1rem 3rem;
+      background: #fff;
+      backdrop-filter:blur(2px);
+    }
+    .promo_card h1{
+      margin-top: 0;
+      color: blueviolet;
+      margin-bottom: 10px;
+    }
+    .promo_card span{
+      color: blueviolet;
+      margin: 10px;
+    }
+    .promo_card button{
+      margin: 10px;
+      display: block;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .history_lists {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 10px ;
+    }
+    table{
+      background: #fff;
+      
+      text-align: left;
+      border-radius: 10px;
+    }
+    table td, th{
+      padding: 0.2rem 0.8rem;
+    }
+    table th{
+      font-size: 15px;
+    }
+    table td{
+      font-size: 13px;
+      color: rgb(100, 100, 100);
+    }
+    /* Sidebar Section */
+
+    
+    
+ 

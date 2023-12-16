@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Profile MSG Mortgage - Your Trusted Mortgage Partner</title>
+  <meta name="description" content="Welcome to MSG Mortgage - Your trusted partner for mortgage and loans. Explore our services and apply today.">
+  <meta name="keywords" content="mortgage, loans, application, financing, home loans">
+  <meta charset="UTF-8">
+  <meta name="author" content="Emmanuel Nhamo">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <!-- Font Awesome CDN Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+  <header class="header">
+      <div class="logo">
+         <a href="/"> <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="MSG Mortgage Logo"></a>
+      </div>
+      
+      <div class="header-icons">
+          <a href="" class="search"><i class="fa fa-search"></i></a>
+      <a href=""><i class="fas fa-bell"></i></a>
+      <div class="account">
+          <a href="/userprofile"><i class="fas fa-user"></i></a>
+      </div>
+      </div>
+  </header>
+  <div class="container">
+      <nav>
+          <div class="navbar">
+              <ul>
+                  <li><a href="{{ url_for('userprofile') }}">
+                          <i class="fas fa-user"></i>
+                          <span class="nav-item">User Profile</span>
+                      </a></li>
+                  <li><a href="{{ url_for('predict') }}">
+                          <i class="fas fa-chart-bar"></i>
+                          <span class="nav-item">Loan Eligibility</span>
+                      </a></li>
+                  <li><a href="#">
+                          <i class="fas fa-tasks"></i>
+                          <span class="nav-item">Quick Links</span>
+                      </a></li>
+                  <li><a href="#">
+                          <i class="fab fa-dochub"></i>
+                          <span class="nav-item">Document Upload</span>
+                      </a></li>
+                  <li><a href="{{ url_for('admin_profile') }}">
+                          <i class="fas fa-cog"></i>
+                          <span class="nav-item">About</span>
+                      </a></li>
+                  <li><a href="#">
+                          <i class="fas fa-question-circle"></i>
+                          <span class="nav-item">Help</span>
+                      </a></li>
+                  <li><a href="{{ url_for('logout') }}" class="logout">
+                          <i class="fas fa-sign-out-alt"></i>
+                          <span class="nav-item">Logout</span>
+                      </a></li>
+              </ul>
+          </div>
+      </nav>
+
+            <!--        searchbar-->
+      <div class="search-bar">
+          <!--            input-->
+                      <div class="search-input">
+                          <input type="text" placeholder="Search for Loans"/>
+          <!--                cancel-btn-->
+                          <a href="#" class="search-cancel"><i class="fas fa-times"></i></a>
+                      </div>
+                  </div>
+      <div class="main-body">
+        
+        
+  <header class="header user-details">
+    <div class="logo">
+      <h2 class="u-name">Welcome,&nbsp;&nbsp;&nbsp;{{user.name}}
+    </div>
+    
+    <div class="header-icons">
+      <img class="u-img" src="{{ url_for('static', filename='images/me.jpeg') }}" alt="User Profile pic">
+    </div>
+</header>
+            <!-- Begin content body -->
+            <section class="my-app__body">
+              {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div id="flash-messages">
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+                <div class="row">
+                  <div class="col-4">
+                    <!-- Begin Payment Balance card -->
+                    <div class="my-card card">
+                      <div class="my-card__header card-header">
+                        <div class="my-card__header-title">
+                          <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>applicant id</th>
+                                    <th>loan amount</th>
+                                    <!-- Add other table headers for each field -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for application in applications %}
+                                    <tr>
+                                        <td>{{ application.id }}</td>
+                                        <td>{{ application.first_name }}</td>
+                                        <td>{{ application.loan_applicant_userid }}</td>
+                                        <td>{{ application.loan_amount }}</td>
+                                        <!-- Add other table cells for each field -->
+                                    </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+                        </table>
+                        
+                        </div>
+                      </div>
+                      <div class="my-card__body card-body">
+                        <dl class="my-list my-list--definitions my-dl">
+                          
+                        </dl>
+                      </div>
+                    </div>
+                    <!-- End Payment Balance card -->
+      
+                              </div>
+      
+                  <div class="col-8">
+                    <div class="my-alert alert alert-info">
+                      <img class="my-alert__icon" src="" alt>
+                      <span class="my-alert__text">
+                        Your latest transaction may take a few minutes to show up here.
+                      </span>
+                    </div>
+      
+                    <!-- Begin Pending card -->
+                    <div class="my-card card">
+                      <div class="my-card__header card-header">
+                        <h3 class="my-card__header-title card-title">Pending</h3>
+                        <a class="my-card__header-link" href="#">See all →</a>
+                      </div>
+                      <ul class="my-list list-group list-group-flush">
+                        <li class="my-list-item list-group-item">
+                          <div class="my-list-item__date">
+                            <span class="my-list-item__date-day">28</span>
+                            <span class="my-list-item__date-month">jul</span>
+                          </div>
+                          <div class="my-list-item__text">
+                            <h4 class="my-list-item__text-title">Bank of America</h4>
+                            <p class="my-list-item__text-description">Withdraw to bank account</p>
+                          </div>
+                          <div class="my-list-item__fee">
+                            <span class="my-list-item__fee-delta">+250.00</span>
+                            <span class="my-list-item__fee-currency">USD</span>
+                          </div>
+                        </li>
+                        <li class="my-list-item list-group-item">
+                          <div class="my-list-item__date">
+                            <span class="my-list-item__date-day">28</span>
+                            <span class="my-list-item__date-month">jul</span>
+                          </div>
+                          <div class="my-list-item__text">
+                            <h4 class="my-list-item__text-title">Bank of America</h4>
+                            <p class="my-list-item__text-description">Withdraw to bank account</p>
+                          </div>
+                          <div class="my-list-item__fee">
+                            <span class="my-list-item__fee-delta">+250.00</span>
+                            <span class="my-list-item__fee-currency">USD</span>
+                          </div>
+                        </li>
+                        <li class="my-list-item list-group-item">
+                          <div class="my-list-item__date">
+                            <span class="my-list-item__date-day">28</span>
+                            <span class="my-list-item__date-month">jul</span>
+                          </div>
+                          <div class="my-list-item__text">
+                            <h4 class="my-list-item__text-title">Bank of America</h4>
+                            <p class="my-list-item__text-description">Withdraw to bank account</p>
+                          </div>
+                          <div class="my-list-item__fee">
+                            <span class="my-list-item__fee-delta">+250.00</span>
+                            <span class="my-list-item__fee-currency">USD</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- End Pending card -->
+      
+                    
+                    
+                  </div>
+                </div>
+            </section>
+            <!-- End content body -->
+          
+      </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="static/main.js"></script>
+</body>
+</html>

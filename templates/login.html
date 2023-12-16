@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MSG Foundation Login Page">
+    <meta name="keywords" content="MSG Foundation, login, mortgage, loans">
+    <meta name="author" content="Emmanuel Nhamo">
+    
+    <title>Login MSG Foundation</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="MSG Mortgage Logo">
+        </div>
+        
+        <div class="header-icons">
+            <a href="" class="search"><i class="fa fa-search"></i></a>
+        <a href=""><i class="fas fa-bell"></i></a>
+        <div class="account">
+            <a href=""><i class="fas fa-user"></i></a>
+        </div>
+        </div>
+    </header>
+    <div class="container">
+        <nav>
+            <div class="navbar">
+                <ul>
+                    <li><a href="{{ url_for('register') }}">
+                            <i class="fas fa-user"></i>
+                            <span class="nav-item">User Profile</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="nav-item">Loan Eligibility</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fas fa-tasks"></i>
+                            <span class="nav-item">Quick Links</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fab fa-dochub"></i>
+                            <span class="nav-item">Document Upload</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span class="nav-item">About</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fas fa-question-circle"></i>
+                            <span class="nav-item">Help</span>
+                        </a></li>
+                    <li><a href="{{ url_for('login') }}" class="logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="nav-item">Login</span>
+                        </a></li>
+                </ul>
+            </div>
+        </nav>
+
+              <!--        searchbar-->
+        <div class="search-bar">
+            <!--            input-->
+                        <div class="search-input">
+                            <input type="text" placeholder="Search for Loans"/>
+            <!--                cancel-btn-->
+                            <a href="#" class="search-cancel"><i class="fas fa-times"></i></a>
+                        </div>
+                    </div>
+            <div class="main-body">
+                <h1>Loans</h1>
+                <div class="search_bar">
+                    <input type="search" placeholder="Search houses here...">
+                    <select name="" id="">
+                        <option>Category</option>
+                        <option>Personal Loans</option>
+                        <option>Student Loans</option>
+                        <option>Mortgage Loans</option>
+                    </select>
+                    <select class="filter">
+                        <option>Filter</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <p>There are more than <span>400</span> houses </p>
+                    <a href="#">See all</a>
+                </div>
+            </div>
+       
+
+        <!-- accounts -->
+        <div class="form">
+            <div class="login-form">
+                <!-- form-cancel -->
+                <strong>Login</strong>
+                <!-- inputs -->
+               <!-- inputs -->
+<form action="{{ url_for('login') }}" method="POST">
+    <label for="email">Email:</label>
+    <input type="email" placeholder="examples@mail.com" name="email" id="email" required>
+
+    <label for="pwd">Password:</label>
+    <input type="password" placeholder="password" name="password" id="pwd" required>
+
+    <button type="submit" value="Login">Login</button>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div id="flash-messages">
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+
+    <div class="form-btn">
+        <a href="#" class="forgot">Forgot password? <span>Click Here</span></a>
+    </div>
+    <div class="form-btn">
+        <a href="{{ url_for('register') }}" class="sign-up-btn">Don't have an account? <span>Sign Up</span></a>
+    </div>
+</form>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="static/main.js"></script>
+
+</body>
+
+</html>

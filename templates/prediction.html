@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>application MSG foundation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="MSG Mortgage Logo">
+        </div>
+        
+        <div class="header-icons">
+            <a href="" class="search"><i class="fa fa-search"></i></a>
+        <a href=""><i class="fas fa-bell"></i></a>
+        <div class="account">
+            <a href=""><i class="fas fa-user"></i></a>
+        </div>
+        </div>
+    </header>
+    <div class="container">
+      <nav>
+        <div class="navbar">
+            <ul>
+                <li><a href="{{ url_for('userprofile') }}">
+                        <i class="fas fa-user"></i>
+                        <span class="nav-item">User Profile</span>
+                    </a></li>
+                <li><a href="{{ url_for('predict') }}">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">Loan Eligibility</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="fas fa-tasks"></i>
+                        <span class="nav-item">Quick Links</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="fab fa-dochub"></i>
+                        <span class="nav-item">Document Upload</span>
+                    </a></li>
+                <li><a href="{{ url_for('admin_profile') }}">
+                        <i class="fas fa-cog"></i>
+                        <span class="nav-item">About</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="fas fa-question-circle"></i>
+                        <span class="nav-item">Help</span>
+                    </a></li>
+                <li><a href="{{ url_for('logout') }}" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Logout</span>
+                    </a></li>
+            </ul>
+        </div>
+    </nav>
+
+              <!--        searchbar-->
+        <div class="search-bar">
+            <!--            input-->
+                        <div class="search-input">
+                            <input type="text" placeholder="Search for Loans"/>
+            <!--                cancel-btn-->
+                            <a href="#" class="search-cancel"><i class="fas fa-times"></i></a>
+                        </div>
+                    </div>
+      <div class="main-body">
+        
+        <form class="prediction_form" action="/loan_application" method="POST">
+          <h1 class="application">Loan Application Form</h1>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div id="flash-messages">
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+          <h2><b>{{prediction_text}}</b></h2>
+          <fieldset>
+            <legend>Basic Information</legend>
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" />
+            <label for="middle_initial">Middle Initial</label>
+            <input type="text" name="middle_initial" />
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" />
+            
+  <label for="gender" class="form-label"> gender</label>
+  <select class="form-select" id="gender" name="gender" aria-label="Default select example">
+  <option selected>-- select gender --</option>
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
+            <br/>
+            <label for="email">Email</label>
+            <input type="text" name="email" placeholder="jdoe31@yahoo.com" />
+            <label for="telephone">Contact Number</label>
+            <input type="text" name="telephone" />
+            <label for="home_address">Home Address</label>
+            <input type="text" name="home_address" />
+        
+            <label for="education" class="form_label">Education</label>
+      <select class="form_select" id="education" name="education" aria-label="Default select example">
+      <option selected>-- select education --</option>
+      <option value="Graduate">Graduate</option>
+      <option value="Not Graduate">Not Graduate</option>
+      </select>
+          </fieldset>
+          <fieldset>
+            <legend>Family Information</legend>
+            <label for="married" class="form-label"> Marital status</label>
+            <select class="form-select" id="married" name="married" aria-label="Default select example">
+            <option selected>-- select marital status --</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+            <label for="spouse">Spouse Name</label>
+            <input type="text" name="spouse" />
+              <label for="dependents" class="form-label">Dependents</label>
+            <select class="form-select" id="dependents" name="dependents" aria-label="Default select example">
+            <option selected>-- select dependents --</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3+">3+</option>
+          </select>
+          </fieldset>
+          <fieldset>
+            <legend>Work Information</legend>
+            <label for="employed" class="form-label">Employement Status</label>
+    <select class="form-select" id="employed" name="employed" aria-label="Default select example">
+    <option selected>-- select status --</option>
+    <option value="Yes">employed</option>
+    <option value="No">unemployed</option>
+    </select>
+
+            <label for="company_name">Employer Name</label>
+            <input type="text" name="company_name" />
+            <label for="ApplicantIncome">Current Salary</label>
+            <input type="number" name="ApplicantIncome" />
+            <br>
+            <label for="credit" class="form-label">Credit Score</label>
+<select class="form-select" id="credit" name="credit" aria-label="Default select example">
+<option selected>-- select Credit_score --</option>
+<option value="1.000000">1.000000</option>
+<option value="0.000000">0.000000</option>
+<option value="0.842199">0.842199</option>
+</select>
+<br>
+            <label for="spouse_employed" class="form-label">Spouse Employement Status</label>
+            <select class="form-select" id="spouse_employed" name="spouse_employed" aria-label="Default select example">
+            <option selected>-- select status --</option>
+            <option value="Yes">employed</option>
+            <option value="No">unemployed</option>
+            </select>
+        
+                    <label for="spouse_company_name">Employer Name</label>
+                    <input type="text" name="spouse_company_name" />
+            <label for="CoapplicantIncome"> Spouse Salary:</label>
+<input type="number" id="CoapplicantIncome" name="CoapplicantIncome" required>
+          </fieldset>
+          <fieldset>
+            <legend>Loan Details</legend>
+            <label for="area" class="form-label">Property Location</label>
+<select class="form-select" id="area" name="area" aria-label="Default select example">
+<option selected>-- select location --</option>
+<option value="Urban">Urban</option>
+<option value="Semiurban">Semi-Urban</option>
+<option value="Rural">Rural</option>
+</select>
+
+<label for="LoanAmount">Loan Amount:</label>
+<input type="number" id="LoanAmount" name="LoanAmount" required>
+
+<label for="Loan_Amount_Term">Loan Term (in months):</label>
+<input type="number" id="Loan_Amount_Term" name="Loan_Amount_Term" required>
+          </fieldset>
+      
+           <!--  <fieldset>
+            <legend>Special Considerations</legend>
+            <label for="down payment">Down Payment</label>
+            <input type="text" name="down payment" />
+            <input type="checkbox" name="out-of-state" value="out-of-state">Out of State Resident
+            <input type="checkbox" name="cosigner" value="cosigner">Cosigner
+            <br/>
+            <label for="name">Name of Cosigner</label>
+            <input type="text" name="name-of-cosigner" />
+            <label for="occupation">Cosigner Occupation</label>
+            <input type="text" name="occupation" />
+          </fieldset>-->
+          <fieldset>
+            <legend>Declaration and Authorization</legend>
+            <!-- Declaration and Authorization -->
+<label for="declaration">Declaration:</label>
+<input type="text" id="declaration" class="declaration" name="declaration" >
+          </fieldset>
+          
+        
+          <button class="submit_app" type="submit">Submit</button>
+        
+        </form>
+      </div>
+    
+  </div>
+</body>
+</html>

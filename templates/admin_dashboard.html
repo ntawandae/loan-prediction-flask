@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>MSG Mortgage - Your Trusted Mortgage Partner</title>
+    <meta name="description" content="Welcome to MSG Mortgage - Your trusted partner for mortgage and loans. Explore our services and apply today.">
+    <meta name="keywords" content="mortgage, loans, application, financing, home loans">
+    <meta charset="UTF-8">
+    <meta name="author" content="Emmanuel Nhamo">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="MSG Mortgage Logo">
+        </div>
+        
+        <div class="header-icons">
+            <a href="" class="search"><i class="fa fa-search"></i></a>
+        <a href=""><i class="fas fa-bell"></i></a>
+        <div class="account">
+            <a href=""><i class="fas fa-user"></i></a>
+        </div>
+        </div>
+    </header>
+    <div class="container">
+        <nav>
+            <div class="navbar">
+                <ul>
+                    <li><a href="{{ url_for('register') }}">
+                            <i class="fas fa-user"></i>
+                            <span class="nav-item">User Profile</span>
+                        </a></li>
+                    <li><a href="{{ url_for('predict') }}">
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="nav-item">Loan Eligibility</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fas fa-tasks"></i>
+                            <span class="nav-item">Quick Links</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fab fa-dochub"></i>
+                            <span class="nav-item">Document Upload</span>
+                        </a></li>
+                    <li><a href="{{ url_for('admin_profile') }}">
+                            <i class="fas fa-cog"></i>
+                            <span class="nav-item">About</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fas fa-question-circle"></i>
+                            <span class="nav-item">Help</span>
+                        </a></li>
+                    <li><a href="{{ url_for('login') }}" class="logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="nav-item">Login</span>
+                        </a></li>
+                </ul>
+            </div>
+        </nav>
+
+              <!--        searchbar-->
+        <div class="search-bar">
+            <!--            input-->
+                        <div class="search-input">
+                            <input type="text" placeholder="Search for Loans"/>
+            <!--                cancel-btn-->
+                            <a href="#" class="search-cancel"><i class="fas fa-times"></i></a>
+                        </div>
+                    </div>
+                <div class="main-body">
+                <div class="promo_card">
+                    <h1>Welcome to MSG Foundation</h1>
+                    <span>Your Trusted Partner for Mortgage and Loans</span>
+                    <button>Sign-up</button>
+                  </div>
+                
+      <div class="history_lists">
+        <div class="list1">
+          <div class="row">
+            <h4>History</h4>
+            <a href="#">See all</a>
+          </div>
+          
+	<div style="height: 100%; width: 100%;">
+		<canvas class="chart" id="myChart"></canvas>
+	</div>
+        </div>
+        <div class="list2">
+          <div class="row">
+            <h4>Required Loan Documnets</h4>
+            <a href="#">Expand</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Format</th>
+                <th>Max size</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>CNIC</td>
+                <td>PDF</td>
+                <td>20mb</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Passport</td>
+                <td>PDF</td>
+                <td>5mb</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>PaySlip</td>
+                <td>PDF</td>
+                <td>1mb</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Bank Statement</td>
+                <td>Jpg</td>
+                <td>22mb</td>
+              </tr> 
+              <tr>
+                <td>5</td>
+                <td>Proof of residecy</td>
+                <td>Jpg</td>
+                <td>2mb</td>
+              </tr> 
+              <tr>
+                <td>6</td>
+                <td>proof of employment</td>
+                <td>Word</td>
+                <td>2mb</td>
+              </tr> 
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+            </div>
+                                      
+    </div>
+    <script>
+      const labels = {{ labels | tojson}};
+  
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: 'Total Amount Loans Granted',
+          backgroundColor: 'blueviolet',
+          borderColor: 'blueviolet',
+          data: {{ data | tojson}},
+        }]
+      };
+  
+      const config = {
+        type: 'line',
+        data: data,
+        options: { maintainAspectRatio: false }
+      };
+  
+      const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+  
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="static/main.js"></script>
+</body>
+
+</html>
