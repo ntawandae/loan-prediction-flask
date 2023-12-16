@@ -20,5 +20,8 @@ The project employs Flask-Login for user session management, bcrypt for password
 ![fe search](https://github.com/ntawandae/loan-prediction-flask/assets/56553042/3a0da9d7-0663-4c14-9ef6-da1fade6a99e)
 
 ****Usage****
+
+
+firstly activate the virtual envronment for this to work then run
 python app.py
 
